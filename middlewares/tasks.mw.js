@@ -7,7 +7,7 @@ module.exports.checkTask = async (req, res, next) => {
       params: { taskId },
     } = req;
     const [task] = await userInstance.getTasks({ where: { id: taskId } });
-    if (!taskInstance) {
+    if (!task) {
       return res.status(404).send({ data: "Task not exists" });
     }
     req.taskInstance = task;

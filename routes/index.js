@@ -19,19 +19,12 @@ router.delete("/users/:userId", checkUser, UserController.deleteUserInstance);
 router.post("/users/:userId/tasks", checkUser, TaskController.createTask);
 router.get("/users/:userId/tasks", checkUser, TaskController.getAllTasks);
 router.get("/tasks/:taskId", checkOnlyTask, TaskController.getTask);
-
-// router.patch(
-//   "/users/:userId/tasks/:taskId",
-//   checkUser,
-//   checkTask,
-//   TaskController.updateTask
-// );
-
-// router.delete(
-//   "/users/:userId/tasks/:taskId",
-//   checkUser,
-//   checkTask,
-//   TaskController.deleteTask
-// );
+router.patch(
+  "/users/:userId/tasks/:taskId",
+  checkUser,
+  checkTask,
+  TaskController.updateTask
+);
+router.delete("/tasks/:taskId", checkOnlyTask, TaskController.deleteTask);
 
 module.exports = router;
